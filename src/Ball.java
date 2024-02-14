@@ -4,9 +4,9 @@ public class Ball {
     private int x,y,size;
     private double v = 0;
     int count = 0;
-    Tracer t1 = new Tracer(this,4);
+    Tracer t1 = new Tracer(this,5);
     Tracer t2 = new Tracer(this,3);
-    Tracer t3 = new Tracer(this,2);
+    Tracer t3 = new Tracer(this,1);
     public int[][] pos = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
     public Ball(int x, int y, int size) {
         this.x = x;

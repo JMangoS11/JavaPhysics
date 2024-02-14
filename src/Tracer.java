@@ -17,7 +17,7 @@ public class Tracer {
             g.fillOval(b.pos[count-(delay+1)][0],b.pos[count-(delay+1)][1],b.getSize(),b.getSize());
         }
         count++;
-        if(count == delay+11) {count = 5;}
+        if(count == delay+11) {count = delay+1;}
 
 
 
