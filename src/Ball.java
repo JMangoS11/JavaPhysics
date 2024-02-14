@@ -2,16 +2,21 @@ import java.awt.*;
 
 public class Ball {
     private int x,y,size;
-    private double v = 0;
+    private double energy;
+    private double v;
+    private double m;
     int count = 0;
     Tracer t1 = new Tracer(this,5);
     Tracer t2 = new Tracer(this,3);
     Tracer t3 = new Tracer(this,1);
     public int[][] pos = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
-    public Ball(int x, int y, int size) {
+    public Ball(int x, int y, int size, double mass) {
         this.x = x;
         this.y = y;
         this.size = size;
+        m = mass;
+        energy = mass * PhysicsPanel.g * y+1000;
+        v = 1;
     }
 
     public double getV() {return v;}
@@ -25,8 +30,16 @@ public class Ball {
     public int[] getPos() {return new int[]{x, y};}
     public void setX(int x) {this.x = x;}
     public void setY(int y) {this.y = y;}
+    public void setEnergy(double e) {energy = e;}
     public void changeX(int x) {this.x += x;}
     public void changeY(int y) {this.y += y;}
+    public double getEnergy() {return energy;}
+
+    public void movement() {
+        double pe = m * PhysicsPanel.g * y;
+        double ke = energy - pe;
+        v = Math.sqrt(2 * ke / m) / 10;
+    }
 
     public void draw(Graphics g) {
         y += v;

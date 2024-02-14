@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 public class PhysicsPanel extends JPanel implements Runnable {
 
-    Ball b = new Ball(300,100,30);
+    Ball b = new Ball(300,100,30, 10);
 
-    public int g = -10;
+    public static int g = -10;
 
     private Thread time;
 
@@ -31,14 +31,11 @@ public class PhysicsPanel extends JPanel implements Runnable {
             }
         });
         JButton reset = new JButton("RESET");
-        reset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                b.setV(0);
-                g = -10;
-                slide.setValue(10);
-                b.setY(100);
-            }
+        reset.addActionListener(e -> {
+            b.setV(0);
+            g = -10;
+            slide.setValue(10);
+            b.setY(100);
         });
         add(l);
         add(slide);
@@ -46,8 +43,9 @@ public class PhysicsPanel extends JPanel implements Runnable {
     }
     public void movement() {
         //ball
-        b.changeV(-1*(g/10));
-        if(b.getPos()[1] >=500) {b.changeV(-1*2*(b.getV()) - (g/10));}
+        b.movement();
+        //b.changeV(-1*(g/10));
+        //if(b.getPos()[1] >=500) {b.changeV(-1*2*(b.getV()) - (g/10));}
 
     }
     public void paintComponent(Graphics g) {
