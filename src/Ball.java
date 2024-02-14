@@ -4,6 +4,9 @@ public class Ball {
     private int x,y,size;
     private double v = 0;
     int count = 0;
+    Tracer t1 = new Tracer(this,4);
+    Tracer t2 = new Tracer(this,3);
+    Tracer t3 = new Tracer(this,2);
     public int[][] pos = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
     public Ball(int x, int y, int size) {
         this.x = x;
@@ -32,6 +35,9 @@ public class Ball {
         if(count == 10) {count = 0;}
         g.setColor(Color.BLACK);
         g.fillOval(x,y,size,size);
+        t1.draw(g);
+        t2.draw(g);
+        t3.draw(g);
 
     }
 }

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class PhysicsPanel extends JPanel implements Runnable {
 
     Ball b = new Ball(300,100,30);
-    Tracer tB = new Tracer(b,4);
+
     public int g = -10;
 
     private Thread time;
@@ -53,7 +53,7 @@ public class PhysicsPanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         b.draw(g);
-        tB.draw(g);
+
     }
     @Override
     public void addNotify() {
