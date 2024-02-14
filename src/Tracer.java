@@ -11,7 +11,7 @@ public class Tracer {
     }
 
     public void draw(Graphics g) {
-        Color trans = new Color(0,0,255,127);
+        Color trans = new Color(0,0,255,75);
         g.setColor(trans);
         if(count > delay) {
             g.fillOval(b.pos[count-(delay+1)][0],b.pos[count-(delay+1)][1],b.getSize(),b.getSize());
